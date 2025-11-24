@@ -1,0 +1,139 @@
+/*
+ * 3921_BYTESE2.cpp
+ *
+ *  Created on: Dec 13, 2013
+ *      Author: Mostafa Saad
+ */
+
+
+
+#include<set>
+#include<map>
+#include<list>
+#include<iomanip>
+#include<cmath>
+#include<string>
+#include<vector>
+#include<queue>
+#include<stack>
+#include<complex>
+#include<sstream>
+#include<iostream>
+#include<fstream>
+#include<algorithm>
+#include<numeric>
+#include<utility>
+#include<functional>
+#include<stdio.h>
+#include<assert.h>
+#include<memory.h>
+#include<bitset>
+using namespace std;
+
+#define all(v)				((v).begin()), ((v).end())
+#define sz(v)				((int)((v).size()))
+#define clr(v, d)			memset(v, d, sizeof(v))
+#define rep(i, v)		for(int i=0;i<sz(v);++i)
+#define lp(i, n)		for(int i=0;i<(int)(n);++i)
+#define lpi(i, j, n)	for(int i=(j);i<(int)(n);++i)
+#define lpd(i, j, n)	for(int i=(j);i>=(int)(n);--i)
+
+typedef long long         ll;
+const ll OO = 1e8;
+
+const double EPS = (1e-7);
+int dcmp(double x, double y) {	return fabs(x-y) <= EPS ? 0 : x < y ? -1 : 1;	}
+
+#define pb					push_back
+#define MP					make_pair
+#define P(x)				cout<<#x<<" = { "<<x<<" }\n"
+typedef long double   	  ld;
+typedef vector<int>       vi;
+typedef vector<double>    vd;
+typedef vector< vi >      vvi;
+typedef vector< vd >      vvd;
+typedef vector<string>    vs;
+
+
+// Supposed this problem has a simpler solution due to small limits
+
+typedef pair<int, int> NODE;
+#define maxFreq			first
+#define isMixed			second		// For Lazy propagation
+
+// Each node hold
+const int MAX = 3*200+2;
+NODE tree[MAX];
+
+int Enter, Exit;
+int S = 0, E;
+
+void update(int s = S, int e = E, int p = 1) {
+
+	if(Enter > e || Exit < s)	return;		// no intersection
+
+	if(Enter <= s && e <= Exit && !tree[p].isMixed)	// tree interval inside query interval. all its children has same value
+	{
+		tree[p].maxFreq++;
+		return;
+	}
+
+	int mid = (s + e) / 2;
+	if(!tree[p].isMixed)
+		tree[2*p] = tree[2*p+1] = tree[p];	// propagate
+
+	update(s, mid, 2 * p);
+	update(mid + 1, e, 2 * p + 1);
+
+	tree[p].isMixed = tree[2*p].isMixed || tree[2*p+1].isMixed || tree[2*p].maxFreq != tree[2*p+1].maxFreq;
+
+	tree[p].maxFreq = max(tree[2*p].maxFreq, tree[2*p+1].maxFreq);
+}
+
+int main()
+{
+#ifndef ONLINE_JUDGE
+	freopen("c.in", "rt", stdin);
+	//freopen(".txt", "wt", stdout);
+#endif
+
+	int cases;
+
+	scanf("%d", &cases);
+
+	lp(cc, cases)
+	{
+		int n;
+		scanf("%d", &n);
+
+		lp(i, MAX)
+			tree[i].isMixed = 0, tree[i].maxFreq = 0;
+
+		vector< pair<int, int> > input(n);
+		set<int> st;	// for co-ordinate compression. We just care with relative values
+
+		lp(i, n)
+		{
+			scanf("%d%d", &input[i].first, &input[i].second);
+			st.insert(input[i].first);
+			st.insert(input[i].second);
+		}
+
+		E = sz(st);
+
+		lp(i, n)
+		{
+			set<int>::iterator it = st.find(input[i].first);
+			input[i].first = distance(st.begin(), it);
+
+			it = st.find(input[i].second);
+			input[i].second = distance(st.begin(), it);
+
+			Enter = input[i].first, Exit = input[i].second;
+			update();
+		}
+
+		cout<<tree[1].maxFreq<<"\n";
+	}
+	return 0;
+}

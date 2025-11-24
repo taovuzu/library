@@ -1,0 +1,1 @@
+{"name":"Local: checker","url":"d:\\frede\\coding\\stress_Tester\\checker.cpp","tests":[{"id":1740804732116,"input":"3 2 \nabc\nxyc\nayd","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\frede\\coding\\stress_Tester\\checker.cpp","group":"local","local":true}

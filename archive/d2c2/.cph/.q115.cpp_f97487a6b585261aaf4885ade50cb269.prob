@@ -1,0 +1,1 @@
+{"name":"Local: q115","url":"d:\\frede\\coding\\pitamah\\junior_raider\\div2_c2\\q115.cpp","tests":[{"id":1747300648882,"input":"1\n6\n8.0 9.0\n4.0 7.5\n1.0 2.0\n5.1 8.7\n9.0 2.0\n4.5 1.0","output":"5.00\n5.00 5.00"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\frede\\coding\\pitamah\\junior_raider\\div2_c2\\q115.cpp","group":"local","local":true}

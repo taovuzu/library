@@ -1,0 +1,1 @@
+-std=c++23 -Wall -Wextra -Wshadow -Wfloat-equal -Wduplicated-cond -Wlogical-op -Wno-sign-compare -Wno-sign-conversion -DLOCAL

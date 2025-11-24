@@ -1,0 +1,57 @@
+// Arrays, Vectors, Sequences
+a, b, c, d, e, arr, vec
+
+// Loop Indices
+i, j, h, i_, j_, k_, id, idx, cur
+
+// Counters / Temporary / Result
+cnt, temp, res, ans, sum, total, score, best, worst, minv, maxv, ret
+
+// Frequency / Flags / State
+f, vis, used, mark, alive, dead, ok, fail, done, flag, on, off
+
+// Graphs & Trees
+g, adj, edges, tree, u, v, node, par, ch, deg, tin, tout, low
+
+// Geometry / Range / Coordinates
+x, y, z, x_, y_, l, r, m, mid, left, right, dx, dy, pt, seg, rect
+
+// Strings
+s, s1, s2, s3
+
+// Maps
+mp, mp1, mp2
+
+// Sets
+xt, xt1, xt2, seen, uniq
+
+// Stacks, Queues, Priority Queues
+sk, sk1, sk2, qu, qu1, qu2, pq, pq1, pq2
+
+// Pairs, Tuples
+p, p1, p2, p3, p4, tp, tp1, tp2, tp3
+
+// Dynamic Programming
+dp, dp1, dp2, memo, cache, pre, suf
+
+// Segment Trees / BIT / RMQ
+sx, sx1, sx2
+
+// Binary Search
+lo, hi, mid, ub, lb
+
+// Queries
+q, q1, q2
+
+// Iterators
+it
+
+
+// max allowed size for 256 mb -> 2 * 1e7 n;
+
+// __builtin's works on unsigned numbers only
+// __builtin_popcountll(x)     -> returns the number of 1's
+// __builtin_clzll(x)          -> returns the count of leading zero's, Undefined behavior on zero
+// __builtin_ctzll(x)          -> returns the count of trailing zero's, Undefined behavior on zero
+
+The Golden Rule: Always put the variable you're checking on the left side of the comparison. For the range check put them as like the we denote ranges in maths

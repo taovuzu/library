@@ -1,0 +1,1 @@
+{"name":"Local: q15","url":"d:\\frede\\coding\\pitamah\\junior_raider\\div2_c2\\q15.cpp","tests":[{"id":1742144443885,"input":"3\nBAOBAB\nAAAA\nABA","output":"22\n15\n5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\frede\\coding\\pitamah\\junior_raider\\div2_c2\\q15.cpp","group":"local","local":true}

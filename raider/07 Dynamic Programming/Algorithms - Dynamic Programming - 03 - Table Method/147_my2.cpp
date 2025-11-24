@@ -1,0 +1,54 @@
+
+const int COINS = 11;
+const int MAX_COIN = 30000+1;
+
+int coins[COINS] = {5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000};
+
+ll mem[COINS][MAX_COIN];
+
+ll nWays(int idx, int rem)
+{
+	if(rem == 0)
+		return 1;
+
+	if(rem < coins[idx] || idx == COINS)
+		return 0;
+
+	ll &ret = mem[idx][rem];
+
+	if(ret != -1)
+		return ret;
+
+	return ret = nWays(idx+1, rem) + nWays(idx, rem - coins[idx]);
+}
+
+int main()
+{
+#ifndef ONLINE_JUDGE
+	freopen("c.in", "rt", stdin);
+#endif
+
+	clr(mem, -1);
+
+	//for (int i = 0; i < MAX_COIN; i += 5)		nWays(0, i);
+
+	double n;
+	while(cin>>n)
+	{
+		int val = (int)(n*100 + EPS);
+		if(val == 0)
+			break;
+
+		cout<<setiosflags(ios::fixed)
+			<<setiosflags(ios::showpoint)
+			<<setprecision(2)
+			<<setw(6)
+			<<n
+			<<setw(17)
+			<<nWays(0, val)
+			<<"\n";
+	}
+
+
+	return 0;
+}

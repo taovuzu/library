@@ -1,0 +1,1 @@
+{"name":"Local: q96","url":"d:\\frede\\coding\\pitamah\\junior_raider\\div2_c2\\q96.cpp","tests":[{"id":1745428801178,"input":"5 1 6\n1 4 5\n6 3 9\n2 6 8\n6 1 7\n\n5 1 6\n1 4 5\n6 3 9\n2 6 8\n6 1 7","output":"22\n22"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\frede\\coding\\pitamah\\junior_raider\\div2_c2\\q96.cpp","group":"local","local":true}

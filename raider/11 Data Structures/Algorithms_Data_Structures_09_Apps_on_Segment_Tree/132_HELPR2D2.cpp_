@@ -1,0 +1,132 @@
+/*
+ * 132_HELPR2D2.cpp
+ *
+ *  Created on: Dec 11, 2013
+ *      Author: Mostafa Saad
+ */
+
+
+
+#include<set>
+#include<map>
+#include<list>
+#include<iomanip>
+#include<cmath>
+#include<string>
+#include<vector>
+#include<queue>
+#include<stack>
+#include<complex>
+#include<sstream>
+#include<iostream>
+#include<fstream>
+#include<algorithm>
+#include<numeric>
+#include<utility>
+#include<functional>
+#include<stdio.h>
+#include<assert.h>
+#include<memory.h>
+#include<bitset>
+using namespace std;
+
+#define all(v)				((v).begin()), ((v).end())
+#define sz(v)				((int)((v).size()))
+#define clr(v, d)			memset(v, d, sizeof(v))
+#define rep(i, v)		for(int i=0;i<sz(v);++i)
+#define lp(i, n)		for(int i=0;i<(int)(n);++i)
+#define lpi(i, j, n)	for(int i=(j);i<(int)(n);++i)
+#define lpd(i, j, n)	for(int i=(j);i>=(int)(n);--i)
+
+typedef long long         ll;
+
+
+const double EPS = (1e-7);
+int dcmp(double x, double y) {	return fabs(x-y) <= EPS ? 0 : x < y ? -1 : 1;	}
+
+#define pb					push_back
+#define MP					make_pair
+#define P(x)				cout<<#x<<" = { "<<x<<" }\n"
+typedef long double   	  ld;
+typedef vector<int>       vi;
+typedef vector<double>    vd;
+typedef vector< vi >      vvi;
+typedef vector< vd >      vvd;
+typedef vector<string>    vs;
+
+const int N = 100000+1;
+const int MAX = 3*N;
+int interval[MAX];
+
+int cnt, k, minVal;
+int S = 0, E;
+
+void query_update(int s = S, int e = E, int p = 1) {	// easily merge query & update - special case problem - initial range always complete
+	if(s == e)
+	{
+		if(interval[p] == k)
+			cnt++;
+		interval[p] -= minVal;
+		return;
+	}
+
+	int mid = (s + e)>>1;
+
+	if (interval[p<<1] >= minVal)
+		query_update(s, mid, p<<1);
+	else
+		query_update(mid + 1, e, (p<<1)|1);
+
+	interval[p] = max(interval[p<<1], interval[(p<<1)|1]);
+}
+
+int main()
+{
+#ifndef ONLINE_JUDGE
+	freopen("c.in", "rt", stdin);
+	//freopen(".txt", "wt", stdout);
+#endif
+
+	int cases;
+	scanf("%d", &cases);
+
+	lp(cc, cases)
+	{
+		cnt = 0;
+		scanf("%d", &k);
+		int n;
+		scanf("%d", &n);
+
+		E = min(n, 100000);
+		fill(interval, interval+3*E, k);	// all values are same. no need to build tree
+
+		int totalContainers = 0;
+
+		lp(i, n)
+		{
+			cin>>ws;
+			if(cin.peek() == 'b')
+			{
+				char c;
+				int cnt;
+				scanf("%c %d %d", &c, &cnt, &minVal);
+				while(cnt--)
+				{
+					totalContainers += minVal;
+					query_update();
+					i++;
+				}
+				--i;
+			}
+			else
+			{
+				scanf("%d", &minVal);
+				query_update();
+				totalContainers += minVal;
+			}
+		}
+		cout<<cnt<<" "<<cnt*k - totalContainers<<"\n";
+	}
+
+	return 0;
+}

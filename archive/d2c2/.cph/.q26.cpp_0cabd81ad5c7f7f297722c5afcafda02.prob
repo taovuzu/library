@@ -1,0 +1,1 @@
+{"name":"Local: q26","url":"d:\\frede\\coding\\pitamah\\junior_raider\\div2_c2\\q26.cpp","tests":[{"id":1742326926591,"input":"4 3\nX1S3\n42X4\nX1D2\n\n5 5\nS5213\n2X2X5\n51248\n4X4X2\n1445D\n\n0 0","output":"4\n23"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\frede\\coding\\pitamah\\junior_raider\\div2_c2\\q26.cpp","group":"local","local":true}

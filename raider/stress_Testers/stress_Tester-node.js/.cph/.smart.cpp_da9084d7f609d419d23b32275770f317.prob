@@ -1,0 +1,1 @@
+{"name":"Local: smart","url":"d:\\frede\\coding\\stress_Tester\\smart.cpp","tests":[{"id":1738248982612,"input":"5\ndcdabccb\nbedaaaea\nedceabbc","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\frede\\coding\\stress_Tester\\smart.cpp","group":"local","local":true}
