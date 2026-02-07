@@ -109,6 +109,16 @@ ostream &operator<<(ostream &os, priority_queue<T> p) {
 }
 
 template <class T>
+ostream &operator<<(ostream &os, priority_queue<T, vector<T>, greater<T>> p) {
+  os << "[";
+  while (!p.empty()) {
+    os << p.top() << " ";
+    p.pop();
+  }
+  return os << "]";
+}
+
+template <class T>
 ostream &operator<<(ostream &os, const deque<T> &p) {
   os << "[";
   for (const auto &it : p) os << it << " ";
