@@ -55,3 +55,15 @@ it
 // __builtin_ctzll(x)          -> returns the count of trailing zero's, Undefined behavior on zero
 
 The Golden Rule: Always put the variable you're checking on the left side of the comparison. For the range check put them as like the we denote ranges in maths
+
+
+// Note: Div2 Strategy
+
+// Problem A (Estimated ~800-1000): 0 - 10 minutes. Do not prove it, just trust your gut and code.
+// Problem B (Estimated ~1100-1400): 10 - 25 minutes. Usually greedy or simple math. Keep code short.
+// Problem C (Estimated ~1400-1700): 25 - 55 minutes. This is where AI causes the most inflation. Be meticulously careful with your implementation and edge cases (N=1, zeros, negative numbers). A penalty here destroys your delta.
+// Problem D (Estimated ~1700-1900+): 55 - 110 minutes. This is your CM battleground. You have a full hour. This is pure problem-solving time.
+
+// Read Problem E. Sometimes E is a standard data structure problem (easier to implement) while D or C is a weird brain-teaser. Come back to D or C after resetting your brain.
+
+// How to use it: After reading the problem, give yourself exactly 10 minutes on paper. If you cannot reduce the problem to a known paradigm (e.g., "This is just binary search on the answer," or "I just need to find the shortest path in a modified graph") or find a solid greedy invariant within those 10 minutes, you are missing a critical mathematical observation. Action: Step away. Read Next Problem.
