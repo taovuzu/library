@@ -67,3 +67,65 @@ The Golden Rule: Always put the variable you're checking on the left side of the
 // Read Problem E. Sometimes E is a standard data structure problem (easier to implement) while D or C is a weird brain-teaser. Come back to D or C after resetting your brain.
 
 // How to use it: After reading the problem, give yourself exactly 10 minutes on paper. If you cannot reduce the problem to a known paradigm (e.g., "This is just binary search on the answer," or "I just need to find the shortest path in a modified graph") or find a solid greedy invariant within those 10 minutes, you are missing a critical mathematical observation. Action: Step away. Read Next Problem.
+
+
+================================================================================
+      C++ FORMATTING RULES FOR COMPETITIVE PROGRAMMING
+================================================================================
+
+PART 1: GLOBAL SCOPE (Outside Functions)
+--------------------------------------------------------------------------------
+
+1.1 Include/Macro Wall
+    * Leave exactly 1 blank line after the last #include or #pragma.
+    * Leave exactly 1 blank line after a contiguous block of #define, 
+      using, or typedef.
+
+1.2 Top-Level Closure
+    * Leave exactly 1 blank line after the closing brace/semicolon 
+      (} or };) of any struct, class, or global function.
+    * EXCEPTION: Leave 0 blank lines between consecutive one-liner templates.
+
+
+PART 2: INNER FUNCTION SCOPE (Inside solve, main, etc.)
+--------------------------------------------------------------------------------
+
+2.1 Brace Hugging
+    * Leave 0 blank lines immediately after an opening brace {.
+    * Leave 0 blank lines immediately before a closing brace }.
+
+2.2 Semicolon Stacking
+    * Leave 0 blank lines between consecutive statements ending in a 
+      semicolon ; at the same depth.
+
+2.3 The Depth 1 Entry Rule
+    * If a for, while, if, or switch is at Depth 1 (its parent is the 
+      function itself), leave exactly 1 blank line before it.
+    * EXCEPTION: Do not add a blank line if the previous line is already blank.
+
+2.4 Depth 2+ Entry
+    * If a for, while, or if is at Depth 2 or deeper (nested), leave 
+      0 blank lines before it.
+
+2.5 Control Flow Exit
+    * Leave exactly 1 blank line after the closing brace } of any for, 
+      while, if, or switch.
+    * EXCEPTION: Only do this if another statement follows it in the 
+      same scope (do not violate the Brace Hugging rule).
+
+2.6 Else Chaining
+    * Leave 0 blank lines around the else keyword (e.g., } else {).
+
+2.7 Return Isolation
+    * If a return statement is at Depth 1 (the outermost scope of the 
+      function), leave exactly 1 blank line before it.
+    * EXCEPTION: Leave 0 blank lines if the return immediately follows 
+      the opening brace { (e.g., a simple one-line getter function).
+
+2.8 The Guard Clause Override
+    * If you have consecutive if statements at Depth 1, and their blocks 
+      contain ONLY terminal statements (return, break, or continue), 
+      leave 0 blank lines between them. 
+    * NOTE: This explicitly overrides the standard Depth 1 Entry Rule (2.3).
+
+================================================================================
