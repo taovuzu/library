@@ -46,6 +46,9 @@ q, q1, q2
 // Iterators
 it
 
+// functions
+solve, rec, calc, work, check, helper, dfs, bfs, init, eval, norm
+
 
 // max allowed size for 256 mb -> 2 * 1e7 n;
 
