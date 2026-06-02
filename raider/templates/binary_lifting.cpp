@@ -49,4 +49,6 @@ int lca(int u, int v) {
   return up[u][0];
 }
 
-int dist(int u, int v) { return depth[u] + depth[v] - 2 * depth[lca(u, v)]; }
+int dist(int u, int v) { 
+  return depth[u] + depth[v] - 2 * depth[lca(u, v)]; 
+}
