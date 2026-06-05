@@ -1,0 +1,1 @@
+{"name":"Local: q11","url":"/home/orz/coding/pitamah/junior_raider/q11.cpp","tests":[{"id":1764512449346,"input":"2 3\n2 9\n5 3 13","output":""},{"id":1764512457263,"input":"3 3\n1 7 6\n2 15 12","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/orz/coding/pitamah/junior_raider/q11.cpp","group":"local","local":true}
