@@ -1,0 +1,73 @@
+// नीरसतां परिश्रमं च आलिंगयन्तु, केवलं अदम्य-अनुशासनेन 
+// एव निपुणता सच्चिदानन्दस्य ब्रह्माण्डस्य तालान् उद्घाटयति। 
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define int long long
+
+#ifndef ONLINE_JUDGE
+#include "pr.h"
+#else
+#define pr(...) {}
+#define debarr(a, n) {}
+#define debmat(mat, row, col) {}
+#endif
+
+void solve() {
+  int n;
+  cin >> n;
+  vector<int> a(n + 1), res;
+  int ans = 1, len = 1, tmp;
+  for (int i = 1; i <= n; i++) {
+    cout << "? " << i << " " << n << " ";
+    for (int j = 1; j <= n; j++) {
+      cout << j << " ";
+    }
+    cout << endl;
+    cout.flush();
+    cin >> tmp;
+    if (tmp > len) ans = i, len = tmp;
+    a[i] = tmp;
+  }
+  res.push_back(ans);
+  while (len > 1) {
+    for (int j = 1; j <= n; j++) {
+      if (a[j] != len - 1) continue;
+      bool flag = false;
+      for (int k = 0; k < res.size(); k++) {
+        if (res[k] == j) {
+          flag = true;
+          break;
+        }
+      }
+      if (flag) continue;
+      cout << "? " << ans << " " << 2 << " " << ans << " " << j << endl;
+      cout.flush();
+      cin >> tmp;
+      if (tmp == 2) {
+        res.push_back(j);
+        len--, ans = j;
+        break;
+      }
+    }
+  }
+  cout << "! " << res.size() << " ";
+  for (int i = 0; i < res.size(); i++) {
+    cout << res[i] << " ";
+  }
+  cout << endl;
+  cout.flush();
+}
+
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0); cout.tie(0);
+
+  int tt = 1; cin >> tt;
+  for (int t_ = 1; t_ <= tt; t_++) {
+    solve();
+  }
+
+  return 0;
+}
